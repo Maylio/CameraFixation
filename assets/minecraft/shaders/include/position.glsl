@@ -10,8 +10,8 @@
 //CAMERAY : include/config.glsl参照
 //CAMERAZ : include/config.glsl参照
 //ROTATEX : include/config.glsl参照
-//(ROTATEY - 180.0) / -57.0 : include/config.glsl参照
-//ROTATEZ / -90.0 : include/config.glsl参照
+//ROTATEY : include/config.glsl参照
+//ROTATEZ : include/config.glsl参照
 
 //rotateX() : include/vsh_util.glsl参照
 //rotateY() : include/vsh_util.glsl参照
