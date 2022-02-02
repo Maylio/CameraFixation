@@ -30,7 +30,7 @@ void main() {
     #define LINE
     #moj_import <position.glsl>
     //カメラと頂点の距離？霧の描画に影響します
-    vec4 linePosEnd = ProjMat * VIEW_SCALE * ModelViewMat * vec4(rotateX(ROTATEX) * rotateY(ROTATEY) * rotateZ(ROTATEZ) * viewpos + Normal, 1.0);
+    vec4 linePosEnd = ProjMat * VIEW_SCALE * ModelViewMat * vec4(rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos + Normal, 1.0);
 
     //通常の処理
     vec3 ndc1 = linePosStart.xyz / linePosStart.w;

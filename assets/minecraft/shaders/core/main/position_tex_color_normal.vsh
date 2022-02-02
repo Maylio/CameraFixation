@@ -28,9 +28,9 @@ void main() {
     vec3 viewpos = vec3(Position.x * 10.0 + thirdpersonpos.x - camerapos.x, Position.y / 1.3 + 10.0, Position.z * 10.0 + thirdpersonpos.z - camerapos.z);
     
     //ModelViewMatを無効化して計算した座標を乗算
-    gl_Position = ProjMat * ModelViewMat * inverse(ModelViewMat) * vec4(rotateX(ROTATEX) * rotateY(ROTATEY) * rotateZ(ROTATEZ) * viewpos, 1.0);
+    gl_Position = ProjMat * ModelViewMat * inverse(ModelViewMat) * vec4(rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos, 1.0);
     ////カメラと頂点の距離？霧の描画に影響します
-    vertexDistance = cylindrical_distance(ModelViewMat * inverse(ModelViewMat), rotateX(ROTATEX) * rotateY(ROTATEY) * rotateZ(ROTATEZ) * viewpos);
+    vertexDistance = cylindrical_distance(ModelViewMat * inverse(ModelViewMat), rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos);
 
 
     //通常の処理

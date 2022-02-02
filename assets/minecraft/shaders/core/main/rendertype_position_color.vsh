@@ -18,7 +18,7 @@ void main() {
     if(isGUI(ProjMat) == false) {
         //空の描画関連なのでプレイヤーの回転のみ無効化します
         vec3 pos = Position * inverse(IViewRotMat);
-        gl_Position = ProjMat * ModelViewMat * (vec4(rotateX(ROTATEX) * rotateY(ROTATEY) * rotateZ(ROTATEZ) * pos, 1.0));
+        gl_Position = ProjMat * ModelViewMat * (vec4(rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * pos, 1.0));
     } else {
         //通常の処理
         gl_Position = ProjMat * ModelViewMat * (vec4(Position, 1.0));

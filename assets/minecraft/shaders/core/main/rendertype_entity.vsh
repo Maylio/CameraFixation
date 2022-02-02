@@ -38,7 +38,7 @@ void main() {
         #define GENERAL
         #moj_import <position.glsl>
         //カメラと頂点の距離？霧の描画に影響します
-        vertexDistance = cylindrical_distance(ModelViewMat, rotateX(ROTATEX) * rotateY(ROTATEY) * rotateZ(ROTATEZ) * viewpos);
+        vertexDistance = cylindrical_distance(ModelViewMat, rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos);
     } else {
         //通常の処理
         gl_Position = ProjMat * ModelViewMat * (vec4(Position, 1.0));
