@@ -10,6 +10,13 @@
 ・https://github.com/Godlander/objmc  
 
 ## 使い方
+__Releases__ から最新版のリソースパックをダウンロードして、__.minecraft\resourcepacks__ 下においてください。
+
+__注意：__ __三人称視点前方または後方での使用のみサポートしています。__
+
+
+## 改造
+
 __include/config.glsl__ を編集してカメラの位置と回転の設定を変更できます。
 
 ### カメラの位置
