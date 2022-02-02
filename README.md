@@ -12,6 +12,8 @@
 ## 使い方
 __Releases__ から最新版のリソースパックをダウンロードして、__.minecraft\resourcepacks__ 下においてください。
 
+リソースパックを抜いた状態でF3で自分のカメラの回転を確認して入力すると狙ったカメラ設定になりやすいです。
+
 __注意：__ __三人称視点前方または後方での使用のみサポートしています。__
 
 
@@ -50,6 +52,44 @@ __include/config.glsl__ を編集してカメラの位置と回転の設定を�
   ```
   #define ROTATEZ 0.0
   ```
+  
+### おすすめのカメラ設定
+斜め下から
+```
+//プレイヤーからの相対座標
+//X座標
+#define CAMERAX 0.0
+//Y座標
+#define CAMERAY 4.0
+//Z座標
+#define CAMERAZ 0.0
+
+//回転させたい角度
+//縦回転
+#define ROTATEX 80.0
+//横回転
+#define ROTATEY 0.0
+//傾き
+#define ROTATEZ 0.0
+```
+真上から
+```
+//プレイヤーからの相対座標
+//X座標
+#define CAMERAX 0.0
+//Y座標
+#define CAMERAY 4.0
+//Z座標
+#define CAMERAZ 0.0
+
+//回転させたい角度
+//縦回転
+#define ROTATEX 80.0
+//横回転
+#define ROTATEY 0.0
+//傾き
+#define ROTATEZ 0.0
+```
   
 ## ライセンス
 __MITライセンス__ が適用されます。
