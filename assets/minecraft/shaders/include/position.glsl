@@ -10,8 +10,8 @@
 //CAMERAY : include/config.glsl参照
 //CAMERAZ : include/config.glsl参照
 //ROTATEX : include/config.glsl参照
-//ROTATEY : include/config.glsl参照
-//ROTATEZ : include/config.glsl参照
+//(ROTATEY - 180.0) / -57.0 : include/config.glsl参照
+//ROTATEZ / -90.0 : include/config.glsl参照
 
 //rotateX() : include/vsh_util.glsl参照
 //rotateY() : include/vsh_util.glsl参照
@@ -40,7 +40,7 @@
 
     //-----描画-----              ↓どうしてvec4かというとProjMatとModelViewMatがmat4だからです。matとvecは後ろの数字が同じものしか乗算できません。
     //射影行列 * モデルビュー行列 * vec4(configで指定した数値から作った回転行列 * 回転が無効化されてカメラが移動した座標 , 描画のレイヤー位置？)
-    gl_Position = ProjMat * ModelViewMat * vec4(rotateX(ROTATEX) * rotateY(ROTATEY) * rotateZ(ROTATEZ) * viewpos, 1.0);
+    gl_Position = ProjMat * ModelViewMat * vec4(rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos, 1.0);
     //-------------------------------------------------------------------------------------------------------------------
 #endif
 
@@ -72,9 +72,9 @@
 
     //-----描画-----     (ModelViewMatは無効化します)
     //射影行列 * vec4(configで指定した数値から作った回転行列 * 回転が無効化されてカメラが移動した座標 , 描画のレイヤー位置？)
-    gl_Position = ProjMat * ModelViewMat * inverse(ModelViewMat) * vec4(rotateX(ROTATEX) * rotateY(ROTATEY) * rotateZ(ROTATEZ) * viewpos, 1.0);
+    gl_Position = ProjMat * ModelViewMat * inverse(ModelViewMat) * vec4(rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos, 1.0);
     ////カメラと頂点の距離？霧の描画に影響します
-    vertexDistance = cylindrical_distance(ModelViewMat * inverse(ModelViewMat) , rotateX(ROTATEX) * rotateY(ROTATEY) * rotateZ(ROTATEZ) * viewpos);
+    vertexDistance = cylindrical_distance(ModelViewMat * inverse(ModelViewMat) , rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos);
     //-------------------------------------------------------------------------------------------------------------------
 #endif
 
@@ -102,7 +102,7 @@
 
     //-----描画-----              ↓どうしてinverse(IViewRotMat)でviewposを挟んだら動いたんですか？？？
     //射影行列 * モデルビュー行列 * vec4(configで指定した数値から作った回転行列 * 回転が無効化されてカメラが移動した座標 , 描画のレイヤー位置？)
-    gl_Position = ProjMat * ModelViewMat * vec4(rotateX(ROTATEX) * rotateY(ROTATEY) * rotateZ(ROTATEZ) * inverse(IViewRotMat) * viewpos * inverse(IViewRotMat), 1.0);
+    gl_Position = ProjMat * ModelViewMat * vec4(rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * inverse(IViewRotMat) * viewpos * inverse(IViewRotMat), 1.0);
     //-------------------------------------------------------------------------------------------------------------------
 #endif
 
@@ -131,7 +131,7 @@
 
     //-----描画-----
     //射影行列 * 謎の変数 * vec4(configで指定した数値から作った回転行列 * 回転が無効化されてカメラが移動した座標 , 描画のレイヤー位置？)
-    vec4 linePosStart = ProjMat * VIEW_SCALE * ModelViewMat * vec4(rotateX(ROTATEX) * rotateY(ROTATEY) * rotateZ(ROTATEZ) * viewpos, 1.0);
+    vec4 linePosStart = ProjMat * VIEW_SCALE * ModelViewMat * vec4(rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos, 1.0);
     //-------------------------------------------------------------------------------------------------------------------
 #endif
 
