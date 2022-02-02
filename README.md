@@ -58,17 +58,17 @@ __include/config.glsl__ を編集してカメラの位置と回転の設定を�
 ```
 //プレイヤーからの相対座標
 //X座標
-#define CAMERAX 0.0
+#define CAMERAX 1.0
 //Y座標
-#define CAMERAY 4.0
+#define CAMERAY -1.0
 //Z座標
-#define CAMERAZ 0.0
+#define CAMERAZ 1.0
 
 //回転させたい角度
 //縦回転
-#define ROTATEX 80.0
+#define ROTATEX -40.0
 //横回転
-#define ROTATEY 0.0
+#define ROTATEY 45.0
 //傾き
 #define ROTATEZ 0.0
 ```
