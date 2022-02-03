@@ -24,7 +24,6 @@ __assets/minecraft/shaders/include/config.glsl__ を編集してカメラの位�
 ### カメラの位置
 
 プレイヤーからの __相対座標__ を入力してカメラを移動させることができます。デフォルトの値は下記の通りです。  
-  __座標__
   ```
   //X座標
   #define CAMERAX 0.0
@@ -37,7 +36,6 @@ __assets/minecraft/shaders/include/config.glsl__ を編集してカメラの位�
 ### カメラの回転
 
  __F3で確認できる回転と同じ数値__ を入力してカメラを回転させることができます。デフォルトの値は下記の通りです。  
-  __回転__
   ```
   //縦回転
   #define ROTATEX 0.0
