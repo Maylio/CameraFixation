@@ -12,6 +12,7 @@ in vec3 Normal;
 uniform mat4 ModelViewMat;
 uniform mat4 ProjMat;
 uniform mat3 IViewRotMat;
+uniform int FogShape;
 
 out float vertexDistance;
 out vec4 vertexColor;
@@ -30,7 +31,7 @@ void main() {
     //ModelViewMatを無効化して計算した座標を乗算
     gl_Position = ProjMat * ModelViewMat * inverse(ModelViewMat) * vec4(rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos, 1.0);
     ////カメラと頂点の距離？霧の描画に影響します
-    vertexDistance = cylindrical_distance(ModelViewMat * inverse(ModelViewMat), rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos);
+    vertexDistance = fog_distance(ModelViewMat * inverse(ModelViewMat), rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos, FogShape);
 
 
     //通常の処理
