@@ -19,6 +19,7 @@ uniform sampler2D Sampler2;
 uniform mat4 ModelViewMat;
 uniform mat4 ProjMat;
 uniform mat3 IViewRotMat;
+uniform int FogShape;
 
 uniform vec3 Light0_Direction;
 uniform vec3 Light1_Direction;
@@ -38,11 +39,11 @@ void main() {
         #define GENERAL
         #moj_import <position.glsl>
         //カメラと頂点の距離？霧の描画に影響します
-        vertexDistance = cylindrical_distance(ModelViewMat, rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos);
+        vertexDistance = fog_distance(ModelViewMat, rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos, FogShape);
     } else {
         //通常の処理
         gl_Position = ProjMat * ModelViewMat * (vec4(Position, 1.0));
-        vertexDistance = cylindrical_distance(ModelViewMat, Position);
+        vertexDistance = fog_distance(ModelViewMat, Position, FogShape);
     }
     //通常の処理
     vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, Normal, Color);

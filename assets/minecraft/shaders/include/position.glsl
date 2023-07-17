@@ -74,7 +74,7 @@
     //射影行列 * vec4(configで指定した数値から作った回転行列 * 回転が無効化されてカメラが移動した座標 , 描画のレイヤー位置？)
     gl_Position = ProjMat * ModelViewMat * inverse(ModelViewMat) * vec4(rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos, 1.0);
     ////カメラと頂点の距離？霧の描画に影響します
-    vertexDistance = cylindrical_distance(ModelViewMat * inverse(ModelViewMat) , rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos);
+    vertexDistance = fog_distance(ModelViewMat * inverse(ModelViewMat) , rotateX(ROTATEX / -57.0) * rotateY((ROTATEY - 180.0) / -57.0) * rotateZ(ROTATEZ / -90.0) * viewpos, FogShape);
     //-------------------------------------------------------------------------------------------------------------------
 #endif
 

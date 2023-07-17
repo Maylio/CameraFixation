@@ -17,6 +17,7 @@ uniform mat4 ModelViewMat;
 uniform mat4 ProjMat;
 uniform vec3 ChunkOffset;
 uniform mat3 IViewRotMat;
+uniform int FogShape;
 
 out float vertexDistance;
 out vec4 vertexColor;

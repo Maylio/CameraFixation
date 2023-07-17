@@ -1,6 +1,6 @@
 //ProjMatからGUIかを判断する
 bool isGUI(mat4 ProjMat) {
-    return ProjMat[3][2] == -2.0;
+    return abs(ProjMat[3][3] - 1.0) < 0.01;
 }
 
 //ProjMatからメニュー画面かを判断する
